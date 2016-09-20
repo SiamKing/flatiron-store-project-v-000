@@ -1,2 +1,4 @@
-<h1><%= @item.title %></h1>
-<h2>$ <%= @item.price %></h2>
+<div class="col-md-6 col-md-offset-3">
+  <h1><%= @item.title %></h1>
+  <h2><%= number_to_currency(@item.item_price) %></h2>
+</div>

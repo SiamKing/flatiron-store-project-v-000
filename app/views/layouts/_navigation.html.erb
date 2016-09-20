@@ -1,0 +1,9 @@
+<li><%= link_to "Store Home", store_path %></li>
+<% if current_user.nil? %>
+  <li><%= link_to "Sign Up", new_user_registration_path %></li>
+  <li><%= link_to "Sign In", new_user_session_path %></li>
+<% else %>
+  <li><%= link_to "Signed in as #{current_user.email}", user_path(current_user) %></li>
+  <li><%= link_to "Cart", cart_path(current_user.current_cart) if !!current_user.current_cart %></li>
+  <li><a data-method="delete" href="/users/sign_out" rel="nofollow">Sign Out</a></li>
+<% end %>
